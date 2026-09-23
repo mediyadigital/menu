@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +25,7 @@
     width:100%;
     height:100%;
     font-family: 'Quicksand', sans-serif;
+    /* باکگراوەندێ سەرەکی */
     background: url('image/bg.jpg') center center / cover no-repeat fixed;
     background-color: #fceceb; 
     overflow-x:hidden;
@@ -44,7 +46,7 @@
     position:relative;
     width: 430px; 
     max-width: 100%;
-    height: 94dvh; /* گۆڕانکاری: بۆ سەفارییا ئایفۆنێ باشترە */
+    height: 94vh; 
     border-radius: 40px;
     background: rgba(253, 246, 247, 0.75); 
     backdrop-filter: blur(25px); 
@@ -60,8 +62,8 @@
     .stage { padding: 0; }
     .frame { 
       width: 100vw; 
-      height: 100dvh; /* گۆڕانکاری */
-      max-height: 100dvh; /* گۆڕانکاری */
+      height: 100vh; 
+      max-height: 100vh; 
       border-radius: 0; 
       border: none; 
       box-shadow: none; 
@@ -110,6 +112,7 @@
     margin-top:3px;
   }
 
+  /* سەنتەرکرنا نڤیسینا مینیو */
   .title-block{
     position: absolute;
     width: 100%;
@@ -134,6 +137,7 @@
     margin-top:-4px;
   }
 
+  /* دوگمەیێن لایێ ڕاستێ */
   .header-right {
     display: flex;
     flex-direction: column;
@@ -156,6 +160,7 @@
   .close-btn:hover{ transform: scale(1.05); background:#ffe5e9; }
   .close-btn svg{ width:15px;height:15px; stroke: var(--rose-deep); }
 
+  /* دوگمەیا زمانێ یا خڕ ل بن (X) */
   .lang-btn {
     width:36px; height:36px;
     border-radius:50%;
@@ -173,17 +178,18 @@
   .lang-btn:hover { transform: scale(1.05); background: rgba(204, 235, 214, 0.95); }
   .lang-btn:active { transform: scale(0.95); }
 
+  /* body layout */
   .body{
     flex: 1;
     display:flex;
     padding:4px 14px 14px 14px;
     gap:14px;
-    overflow:hidden; 
+    overflow:hidden; /* ڤێرە سکرۆل نابیت */
     position:relative;
     z-index: 10;
   }
 
-  /* ====== گۆڕانکاری د دیزاینا داشبۆردی دا ====== */
+  /* ====== SIDEBAR (شاهانە و ڕێکخستی بێ سکرۆل) ====== */
   .sidebar{
     width: 72px;
     height: 100%; 
@@ -192,13 +198,15 @@
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-radius: 28px;
-    padding: 15px 4px; 
+    /* پادینگێ سەرێ و بنێ من زۆر کێم کر دا هەمی تشت ب جیهـ ببن */
+    padding: 10px 4px 10px 4px; 
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content: space-between; /* ئەڤە دێ ڕێکخیت بۆ هەمی ئایفۆنان */
+    /* ڤالاهییا ناڤبەرا ئایکۆنان من کێم کر */
+    gap: 3px; 
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7);
-    overflow: hidden; 
+    overflow: hidden; /* قەت سکرۆل نابیت! */
   }
   
   .nav-item{
@@ -207,7 +215,7 @@
     flex-direction:column;
     align-items:center;
     gap: 2px;
-    padding: 6px 2px; 
+    padding: 6px 2px; /* من بچویکتر کر */
     border-radius: 18px;
     cursor:pointer;
     background:transparent;
@@ -226,14 +234,16 @@
   .nav-item.active svg{ stroke: #e3869b; stroke-width: 1.8; }
   .nav-item.active span{ color: #e3869b; }
 
+  /* گولا پیڤازی (ڕێک ل بنێ داشبۆردی ب جوانی دیارە) */
   .sidebar-deco{
-    margin-top: auto; 
+    margin-top: auto; /* پێدا ددەتە خوارێ */
     margin-bottom: 2px;
     width: 48px;
     height: 58px;
     opacity: 0.9;
   }
 
+  /* content - تەنها ئەڤ بەشە سکرۆل دبیت */
   .content{
     position:relative;
     flex:1;
@@ -246,9 +256,11 @@
   }
   .content::-webkit-scrollbar{ display:none; }
 
+  /* ===== دیزاینا کارتان (د سەر ئێک دا وەکی وێنێ تە) ===== */
   .card{
     position:relative;
     min-height:165px;
+    /* ئەڤە کارتان گەلەک دکەتە د سەر ئێک دا (Overlap) */
     margin-bottom: -45px; 
     transition: transform 0.3s ease;
     display:flex;
@@ -266,13 +278,15 @@
     position: absolute;
     inset: 0;
     border-radius: 24px;
-    box-shadow: 0 -8px 20px -5px rgba(0,0,0,0.08); 
+    box-shadow: 0 -8px 20px -5px rgba(0,0,0,0.08); /* سێبەرا سەرڤە دا کارتێن د سەر ئێک دا جوان دەرکەڤن */
     z-index: 1;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255,255,255,0.8);
   }
 
+  /* تریکا سەرەکی بۆ ڤەنەشارتنا نڤیسینێ: 
+     من نڤیسین هەمی پاڵدا بۆ سەری (padding-bottom مەزن کر) دا کارتا سەرێ ل سەر نەگریت */
   .card .info{
     position:relative;
     z-index:2;
@@ -331,6 +345,7 @@
   .add-btn:hover { background: #ffffff; transform: scale(1.05); }
   .add-btn:active { transform: scale(0.95); }
 
+  /* وێنێ خوارنێ (3D Floating) */
   @keyframes floatImg {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-5px); }
@@ -338,7 +353,7 @@
   .card .food-img {
     position: absolute;
     right: -5px; 
-    top: -25px; 
+    top: -25px; /* ئینا سەریتر دا دگەل قەبارێ کارتێ بگونجیت */
     width: 45%; 
     height: 115%; 
     object-fit: contain;
@@ -351,25 +366,33 @@
   /* Colors Default */
   .c1 .card-bg { background: linear-gradient(135deg, rgba(251, 230, 235, 0.85), rgba(249, 206, 215, 0.85)); } 
   .c1 h2, .c1 .price, .c1 .add-btn { color: #c25972; }
+
   .c2 .card-bg { background: linear-gradient(135deg, rgba(227, 242, 232, 0.85), rgba(203, 230, 212, 0.85)); } 
   .c2 h2, .c2 .price, .c2 .add-btn { color: #355845; }
+
   .c3 .card-bg { background: linear-gradient(135deg, rgba(252, 237, 241, 0.85), rgba(250, 217, 225, 0.85)); } 
   .c3 h2, .c3 .price, .c3 .add-btn { color: #d06d84; }
+
   .c4 .card-bg { background: linear-gradient(135deg, rgba(252, 244, 235, 0.85), rgba(243, 222, 202, 0.85)); } 
   .c4 h2, .c4 .price, .c4 .add-btn { color: #784c35; }
+
   .c5 .card-bg { background: linear-gradient(135deg, rgba(243, 240, 249, 0.85), rgba(224, 213, 242, 0.85)); } 
   .c5 h2, .c5 .price, .c5 .add-btn { color: #6a4a9c; }
+
   .c6 .card-bg { background: linear-gradient(135deg, rgba(232, 244, 248, 0.85), rgba(205, 227, 236, 0.85)); } 
   .c6 h2, .c6 .price, .c6 .add-btn { color: #35677b; }
 
-  /* Colors Coffee */
+  /* ====== ڕەنگێن تایبەت یێن قەهوێ ====== */
   .c-lemon .card-bg { background: linear-gradient(135deg, rgba(255, 248, 224, 0.9), rgba(255, 238, 179, 0.9)); }
   .c-lemon h2, .c-lemon .price, .c-lemon .add-btn { color: #8a6a1c; }
+
   .c-peach .card-bg { background: linear-gradient(135deg, rgba(255, 238, 230, 0.9), rgba(252, 219, 196, 0.9)); } 
   .c-peach h2, .c-peach .price, .c-peach .add-btn { color: #a65a3a; }
+
   .c-melon .card-bg { background: linear-gradient(135deg, rgba(255, 245, 224, 0.9), rgba(252, 225, 179, 0.9)); } 
   .c-melon h2, .c-melon .price, .c-melon .add-btn { color: #a37c1a; }
 
+  /* footer */
   .footer{
     flex-shrink:0;
     position:relative;
@@ -440,6 +463,7 @@
   .badge.bump { animation: bump .4s cubic-bezier(0.34, 1.56, 0.64, 1); }
   @keyframes bump{ 0%{transform:scale(1)} 50%{transform:scale(1.4)} 100%{transform:scale(1)} }
 
+  /* CART MODAL */
   .cart-modal {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -546,7 +570,7 @@
   }
   
   .whatsapp-btn {
-    background: linear-gradient(135deg, #c65a78, #a8425e);
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -594,18 +618,21 @@
         <div class="tag" id="t-tag">DESSERT &amp; COFFEE</div>
       </div>
       
+      <!-- مینیو د سەنتەرێ شاشێ دا ب ڕوونی -->
       <div class="title-block">
-        <h1 id="t-menuTitle">Menu <span class="heart">♥️</span></h1>
+        <h1 id="t-menuTitle">Menu <span class="heart">♥</span></h1>
         <div class="sub" id="t-subTitle">Made with love</div>
       </div>
 
       <div class="header-right">
+        <!-- دوگمەیا داخستنێ -->
         <button class="close-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="#7a3648" stroke-width="2.5" stroke-linecap="round">
             <line x1="6" y1="6" x2="18" y2="18"/>
             <line x1="18" y1="6" x2="6" y2="18"/>
           </svg>
         </button>
+        <!-- دوگمەیا زمانان یا خڕ -->
         <button class="lang-btn" id="langBtn">EN</button>
       </div>
     </div>
@@ -643,6 +670,7 @@
           <span id="t-cat7">Combos</span>
         </button>
 
+        <!-- گولا پیڤازی ڕێک ل بن داشبۆردی دیار دکەت -->
         <svg class="sidebar-deco" viewBox="0 0 60 76" fill="none">
           <path d="M30 76 C30 50 25 40 30 20" stroke="#7fae93" stroke-width="2" stroke-linecap="round"/>
           <ellipse cx="20" cy="34" rx="9" ry="5" fill="#a9d3bb" transform="rotate(-30 20 34)"/>
@@ -690,28 +718,34 @@
 </div>
 
 <script>
+  // ============================================
+  // 1. LANGUAGE TRANSLATION SYSTEM
+  // ============================================
   const langOrder = ['EN', 'KU', 'AR'];
   let currentLangIndex = 0;
   let currentLang = langOrder[currentLangIndex];
   
   const translations = {
     EN: {
-      brand1: "Sweet", brand2: "BLISS", tag: "DESSERT & COFFEE", menuTitle: 'Menu <span class="heart">♥️</span>', subTitle: "Made with love",
+      brand1: "Sweet", brand2: "BLISS", tag: "DESSERT & COFFEE", menuTitle: 'Menu <span class="heart">♥</span>', subTitle: "Made with love",
       cat1: "Featured", cat2: "Cakes", cat3: "Pastries", cat4: "Coffee", cat5: "Drinks", cat6: "Ice Cream", cat7: "Combos",
       scroll: "Scroll for more treats", addBtn: "Add +", cartTitle: "Your Cart", send: "Order via WhatsApp", total: "Total:"
     },
     KU: {
-      brand1: "شیرینی", brand2: "بلیس", tag: "شرینی و قەهوە", menuTitle: 'مینیۆ <span class="heart">♥️</span>', subTitle: "ب خۆشەویستی دروستکریە",
+      brand1: "شیرینی", brand2: "بلیس", tag: "شرینی و قەهوە", menuTitle: 'مینیۆ <span class="heart">♥</span>', subTitle: "ب خۆشەویستی دروستکریە",
       cat1: "تایبەت", cat2: "کێک", cat3: "هەویرکاری", cat4: "قەهوە", cat5: "ڤەخارن", cat6: "ئایسکرێم", cat7: "کۆمبۆ",
       scroll: "خوارێ بکێشە بۆ دیتنا پتر", addBtn: "زێدە بکە +", cartTitle: "سەبەتەیا تە", send: "داواکرن ب واتساپ", total: "کۆی گشتی:"
     },
     AR: {
-      brand1: "حلوى", brand2: "بليس", tag: "حلوى وقهوة", menuTitle: 'القائمة <span class="heart">♥️</span>', subTitle: "صُنع بحب",
+      brand1: "حلوى", brand2: "بليس", tag: "حلوى وقهوة", menuTitle: 'القائمة <span class="heart">♥</span>', subTitle: "صُنع بحب",
       cat1: "مميز", cat2: "كيك", cat3: "معجنات", cat4: "قهوة", cat5: "مشروبات", cat6: "ايس كريم", cat7: "كومبو",
       scroll: "اسحب للمزيد", addBtn: "إضافة +", cartTitle: "سلة الطلبات", send: "أطلب عبر واتساب", total: "المجموع:"
     }
   };
 
+  // ============================================
+  // 2. IMAGES 
+  // ============================================
   const localImages = {
     img1: "image/img1.png", img2: "image/img2.png", img3: "image/img3.png", img4: "image/img4.png", img5: "image/img5.png", img6: "image/img6.png",
     img7: "image/img7.png", img8: "image/img8.png", img9: "image/img9.png", img10: "image/img10.png", img11: "image/img11.png", img12: "image/img12.png",
@@ -722,6 +756,9 @@
     img37: "image/img37.png", img38: "image/img38.png", img39: "image/img39.png", img40: "image/img40.png", img41: "image/img41.png", img42: "image/img42.png"
   };
 
+  // ============================================
+  // 3. MENU DATA 
+  // ============================================
   const menuData = {
     Featured: [
       { id: 1, title: {EN: "Strawberry Shortcake", KU: "کێکا شلکێ", AR: "كيكة الفراولة"}, desc: {EN: "Moist vanilla cake with fresh strawberries", KU: "کێکا ڤانێلا ب شلکا فرێش", AR: "كيك الفانيليا مع الفراولة"}, price: 6.25, img: localImages.img1 },
@@ -819,7 +856,7 @@
     
     items.forEach((item, index) => {
       const colorClass = item.color ? item.color : `c${(index % 6) + 1}`; 
-      const zIndex = index + 1; /* گۆڕانکاری: ئەڤە دێ وەکەت نڤیسینا کارتان دیار ببیت */
+      const zIndex = 10 - index; 
       const delay = index * 0.05; 
       
       const itemTitle = item.title[currentLang];
@@ -963,8 +1000,6 @@
     message += `\nTotal: $${total.toFixed(2)}`;
     
     const encodedMessage = encodeURIComponent(message);
-    
-    /* گۆڕانکاری: ژمارا خۆ یا واتسئەپی ل ڤێرە بنڤیسە بێی نیشانا (+) */
     const phoneNumber = "9647500000000"; 
     
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
